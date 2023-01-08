@@ -1,28 +1,19 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <!--此处age需要传入Number，必须使用v-bind，否则传入的是字符串，在组件中进行算术运算时会报错-->
+    <Student name="李四" sex="女" :age="18"></Student>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import Student from './components/Student.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  export default {
+    name: "App",
+    components:{Student}
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
 </style>
