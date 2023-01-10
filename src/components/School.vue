@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2 @click="showName">学生姓名：{{name}}</h2>
-    <h2>学生年龄：{{age}}</h2>
+    <h2 @click="showName">学校名称：{{name}}</h2>
+    <h2>学校地址：{{address}}</h2>
   </div>
 </template>
 
@@ -9,11 +9,11 @@
 import {mixin1} from "../mixin.js";
 
 export default {
-  name: "Student",
+  name: "School",
   data(){
     return {
-      name:'张三',
-      age:18
+      name:'尚硅谷',
+      address:'北京'
     }
   },
   mixins:[mixin1]
