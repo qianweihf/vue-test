@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import {mixin1} from "../mixin.js";
+import {mixin1} from "./mixin.js";
 
 export default {
   name: "School",
