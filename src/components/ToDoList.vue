@@ -16,9 +16,9 @@
     data(){
       return {
         todos:[
-          {id:'001',title:'吃饭',done:'false'},
-          {id:'002',title:'上课',done:'false'},
-          {id:'003',title:'逛街',done:'false'}
+          {id:'001',title:'吃饭',done:false},
+          {id:'002',title:'上课',done:false},
+          {id:'003',title:'逛街',done:false}
         ]
       }
     }
