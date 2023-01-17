@@ -1,8 +1,6 @@
 <template>
   <ul class="todo-main">
-    <ToDoItem/>
-    <ToDoItem/>
-    <ToDoItem/>
+    <ToDoItem v-for="todoObj in todos" :key="todoObj.id" :todo="todoObj"/>
   </ul>
 </template>
 
@@ -13,6 +11,16 @@
     name:'ToDoList',
     components:{
       ToDoItem
+    },
+
+    data(){
+      return {
+        todos:[
+          {id:'001',title:'吃饭',done:'false'},
+          {id:'002',title:'上课',done:'false'},
+          {id:'003',title:'逛街',done:'false'}
+        ]
+      }
     }
   }
 </script>
