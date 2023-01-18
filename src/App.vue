@@ -1,9 +1,9 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <ToDoHeader/>
-      <ToDoList/>
-      <ToDoFooter/>
+      <ToDoHeader :addToDo="addToDo"/>
+      <ToDoList :todos="todos" :checkToDo="checkToDo" :deleteToDo="deleteToDo"/>
+      <ToDoFooter :todos="todos"/>
     </div>
   </div>
 </template>
@@ -15,7 +15,36 @@
 
   export default {
     name: "App",
-    components:{ToDoHeader,ToDoList,ToDoFooter}
+    components:{ToDoHeader,ToDoList,ToDoFooter},
+    data(){
+      return {
+        todos:[
+          {id:'001',title:'吃饭',done:true},
+          {id:'002',title:'上课',done:false},
+          {id:'003',title:'逛街',done:true}
+        ]
+      }
+    },
+    methods:{
+      //添加一个todo
+      addToDo(todoObj){
+        this.todos.unshift(todoObj);
+      },
+      //勾选or取消勾选一个todo
+      checkToDo(id){
+        this.todos.forEach((todo)=>{
+          if(todo.id === id){
+            todo.done = !todo.done;
+          }
+        })
+      },
+      //删除一个todo
+      deleteToDo(id){
+        this.todos = this.todos.filter((todo)=>{
+          return todo.id !== id;
+        })
+      }
+    }
 }
 </script>
 
