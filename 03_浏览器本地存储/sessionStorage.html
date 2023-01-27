@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sessionStorage</title>
+</head>
+<body>
+<h2>sessionStorage</h2>
+<button onclick="saveData()">点我保存数据</button><hr/>
+<button onclick="readData()">点我读取数据</button><hr/>
+<button onclick="deleteData()">点我删除数据</button><hr/>
+<button onclick="deleteAllData()">点我清空数据</button><hr/>
+
+<script type="text/javascript">
+
+  let p = {name:'张三',age:18};
+
+  function saveData(){
+    //localStorage的key和value都是string类型，如果不是，将会调用toString方法，转换为String
+    //如果是对象类型，需要手动转换
+    sessionStorage.setItem("msg","hello");
+    sessionStorage.setItem("msg2",666);
+    sessionStorage.setItem("person",JSON.stringify(p));
+  }
+
+  function readData(){
+    //localStorage的key和value都是string类型，如果不是，将会调用toString方法，转换为String
+    //如果是对象类型，需要手动转换
+    //读取不出来的结果是null
+    sessionStorage.getItem("msg");
+    sessionStorage.getItem("msg2");
+
+    const result = sessionStorage.getItem("person");
+    console.log(JSON.parse(result));
+  }
+
+  function deleteData(){
+    //localStorage的key和value都是string类型，如果不是，将会调用toString方法，转换为String
+    //如果是对象类型，需要手动转换
+    sessionStorage.removeItem("msg");
+    sessionStorage.removeItem("msg2");
+    sessionStorage.removeItem("person");
+  }
+
+  function clear(){
+    sessionStorage.clear();
+  }
+</script>
+
+</body>
+</html>
