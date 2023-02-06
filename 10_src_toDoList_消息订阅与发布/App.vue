@@ -36,14 +36,6 @@
           }
         })
       },
-      //更新一个todo
-      updateToDo(id,title){
-        this.todos.forEach((todo)=>{
-          if(todo.id === id){
-            todo.title = title;
-          }
-        })
-      },
       //删除一个todo,使用消息订阅时第一个参数为msgName，不适用，但需要对参数占位
       deleteToDo(_,id){
         this.todos = this.todos.filter((todo)=>{
@@ -77,14 +69,10 @@
       //this.$bus.$on('deleteToDo',this.deleteToDo);   //使用事件总线完成数据传递
       //使用消息订阅完成数据传递
       this.pubId = pubsub.subscribe('deleteToDo',this.deleteToDo);
-
-      this.$bus.$on('updateToDo',this.updateToDo);
     },
     beforeDestroy() {
-      this.$bus.$off('checkToDo');
-      //this.$bus.$off('deleteToDo');
+      this.$bus.$off(['checkToDo','deleteToDo']);
       pubsub.unsubscribe(this.pubId);
-      this.$bus.$off('updateToDo');
     }
   }
 </script>
@@ -112,13 +100,6 @@ body {
   color: #fff;
   background-color: #da4f49;
   border: 1px solid #bd362f;
-}
-
-.btn-edit {
-  color: #fff;
-  background-color: skyblue;
-  border: 1px solid lightskyblue;
-  margin-right: 5px;
 }
 
 .btn-danger:hover {
