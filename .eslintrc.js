@@ -26,7 +26,7 @@ module.exports = {
     overrides: [
         //关闭某文件命名规则校验
         {
-            files:['src/components/*'], //匹配components下的School.vue,Student.vue
+            files:['src/*'], //匹配components下的School.vue,Student.vue
             rules:{
                 'vue/multi-word-component-names':'off',   //匹配文件命名规则
             }
