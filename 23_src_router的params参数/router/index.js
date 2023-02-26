@@ -10,6 +10,7 @@ import Detail from "@/../../24_src_路由的props配置和replace模式/pages/De
 export default new VueRouter({
     routes:[
         {
+            name:'guanyu',
             path:'/about',
             component:About
         },
@@ -25,8 +26,15 @@ export default new VueRouter({
                     path:'message',
                     component:Message,
                     children:[
+                        //query参数
+                        // {
+                        //     path:'detail',
+                        //     component:Detail
+                        // }
+                        //params参数
                         {
-                            path:'detail',
+                            name:'xiangqing',
+                            path:'detail/:id/:title',   //占位符
                             component:Detail
                         }
                     ]

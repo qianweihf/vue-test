@@ -2,9 +2,9 @@
 import VueRouter from 'vue-router'
 import About from '../pages/About.vue'
 import Home from "../pages/Home.vue";
-import News from "../pages/News.vue";
-import Message from "../pages/Message.vue";
-import Detail from "../pages/Detail.vue";
+import News from "@/../../24_src_路由的props配置和replace模式/pages/News.vue";
+import Message from "@/../../24_src_路由的props配置和replace模式/pages/Message.vue";
+import Detail from "@/../../24_src_路由的props配置和replace模式/pages/Detail.vue";
 
 //创建并暴露一个路由器，去管理一组一组的路由器
 export default new VueRouter({
