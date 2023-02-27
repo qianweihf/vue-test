@@ -11,10 +11,7 @@
             <router-link replace class="list-group-item" active-class="active" to="/home/message">Message</router-link>
           </li>
         </ul>
-<!--        <keep-alive include="News">    &lt;!&ndash;此处include中的是组件名&ndash;&gt;-->
-        <keep-alive :include="['News','Message']">
-          <router-view></router-view>
-        </keep-alive>
+        <router-view></router-view>
       </div>
     </div>
   </div>
