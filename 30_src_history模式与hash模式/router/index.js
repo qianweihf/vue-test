@@ -8,13 +8,15 @@ import Detail from "../pages/Detail.vue";
 
 //创建并暴露一个路由器，去管理一组一组的路由器
 const router = new VueRouter({
+    mode:'history',
     routes:[
         {
             name:'guanyu',
             path:'/about',
             component:About,
             meta:{
-                title:'关于'
+                title:'关于',
+                isAuth:true
             }
         },
         {
@@ -32,7 +34,20 @@ const router = new VueRouter({
                     meta:{   //配置需要鉴权才能访问
                         isAuth:true,
                         title:'新闻'
-                    }
+                    },
+                    // beforeEnter:(to,from,next) => {
+                    //     if (to.meta.isAuth) {   //判断当前路由是否需要进行权限控制
+                    //         if (localStorage.getItem('school') === 'atguigu') {   //权限控制的具体规则
+                    //             document.title = to.meta.title || '尚硅谷'
+                    //             next()   //放行
+                    //         } else {
+                    //             alert('学校名不对，无权限查看！')
+                    //         }
+                    //     } else {
+                    //         document.title = to.meta.title || '尚硅谷'
+                    //         next()
+                    //     }
+                    // }
                 },
                 {
                     name:'xiaoxi',
@@ -89,24 +104,24 @@ const router = new VueRouter({
 //         next()
 //     }
 // })
-router.beforeEach((to,from,next) => {
-    if(to.meta.isAuth){   //判断当前路由是否需要进行权限控制
-        if(localStorage.getItem('school') === 'atguigu'){   //权限控制的具体规则
-            document.title = to.meta.title || '尚硅谷'
-            next()   //放行
-        }else{
-            alert('学校名不对，无权限查看！')
-        }
-    }else{
-        document.title = to.meta.title || '尚硅谷'
-        next()
-    }
-})
-
-//全局后置路由守卫——初始化的时候被调用、每次路由切换之后被调用
-router.afterEach((to,from) => {
-    document.title = to.meta.title || '尚硅谷'
-
-})
+// router.beforeEach((to,from,next) => {
+//     if(to.meta.isAuth){   //判断当前路由是否需要进行权限控制
+//         if(localStorage.getItem('school') === 'atguigu'){   //权限控制的具体规则
+//             document.title = to.meta.title || '尚硅谷'
+//             next()   //放行
+//         }else{
+//             alert('学校名不对，无权限查看！')
+//         }
+//     }else{
+//         document.title = to.meta.title || '尚硅谷'
+//         next()
+//     }
+// })
+//
+// //全局后置路由守卫——初始化的时候被调用、每次路由切换之后被调用
+// router.afterEach((to,from) => {
+//     document.title = to.meta.title || '尚硅谷'
+//
+// })
 
 export default router
